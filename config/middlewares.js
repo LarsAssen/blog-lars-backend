@@ -1,8 +1,26 @@
+// config/middlewares.js
 module.exports = [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+        },
+      },
+    },
+  },
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: ['http://localhost:3000', 'https://blog-lars-frontend-rmt78eilb-larsassens-projects.vercel.app'], // Update with your Next.js app domains
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization'],
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
