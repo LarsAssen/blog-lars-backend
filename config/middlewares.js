@@ -16,7 +16,7 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:3000', 'https://blog-lars-frontend.vercel.app'], // Update with your Next.js app domains
+      origin: ['http://localhost:3000', 'https://blog-lars-frontend.vercel.app', 'https://www.lars-assen.com'], // Update with your Next.js app domains
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization'],
     },
